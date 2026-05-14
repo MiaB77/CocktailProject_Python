@@ -24,3 +24,4 @@ class CocktailAPI:
         response = requests.get(cocktail_url)
         data = response.json()
         return data["drinks"][0]
+
