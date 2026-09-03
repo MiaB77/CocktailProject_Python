@@ -1,8 +1,9 @@
 import requests
-from cocktail_api import CocktailAPI
+from .cocktail_api import CocktailAPI
 import tkinter as tk
 from PIL import Image, ImageTk
 from io import BytesIO
+import os
 
 class CocktailApp:
     def __init__(self):
@@ -88,7 +89,8 @@ class CocktailApp:
     def setup_gui(self):
         self.window = tk.Tk()
         self.window.title("Cocktail Search")
-        self.window.iconbitmap('src/cocktail.ico')
+        icon_path = os.path.join(os.path.dirname(__file__), 'cocktail.ico')
+        self.window.iconbitmap(icon_path)
         self.window.configure(bg='light blue')
 
         self.search_frame = tk.Frame(self.window)
@@ -110,7 +112,7 @@ class CocktailApp:
         self.result_text = tk.Listbox(self.window, width=40, height=10)
         self.result_text.grid(row=1, column=0, padx=10, pady=10)
 
-        self.img = Image.open('src/button.ico')
+        self.img = Image.open(os.path.join(os.path.dirname(__file__), 'button.ico'))
         self.img = self.img.resize((50, 50), Image.LANCZOS)
 
         self.photo = ImageTk.PhotoImage(self.img)

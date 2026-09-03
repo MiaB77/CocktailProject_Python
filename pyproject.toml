@@ -1,15 +1,20 @@
 [tool.poetry]
-name = "pythonproject3"
+name = "cocktail-project"
 version = "0.1.0"
-description = ""
+description = "A GUI application for searching cocktails using the CocktailDB API"
 authors = ["miaapanda <balla.anamihaela01@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "cocktail_app", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
 pillow = "^10.1.0"
 
+[tool.poetry.scripts]
+cocktail-app = "cocktail_app.main:main"
 
 [build-system]
 requires = ["poetry-core"]
