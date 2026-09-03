@@ -49,12 +49,24 @@ poetry run cocktail-app
 ```
 
 ### Using Python directly
-```bash
-# Install dependencies
-pip install requests pillow
+```powershell
+# Create and activate virtual environment (PowerShell)
+python -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
 
-# Run the application
-python -m src.cocktail_app.main
+# Upgrade packaging tools and install dependencies
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r requirements.txt
+
+# Run the application (from the project root)
+cd src
+python -m cocktail_app.main
+```
+
+If Pillow fails to build, install binary wheel:
+```powershell
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install Pillow --only-binary=:all:
 ```
 
 ## 🏗️ Architecture
